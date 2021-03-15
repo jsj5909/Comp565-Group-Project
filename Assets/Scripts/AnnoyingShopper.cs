@@ -1,0 +1,108 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+//The annoying shopper slowly meanders through the store stopping at random waypoints
+//when stopped, colliding with them will cause the player to lose items from the cart
+//They player can bump them when they are moving
+
+
+public class AnnoyingShopper : MonoBehaviour
+{
+    [SerializeField] float minSecondsBetweenMoves = 3;
+    [SerializeField] float maxSecondsBetweenMoves = 5;
+
+    [SerializeField] GameObject[] waypoints;
+
+    NavMeshAgent navigation;
+
+    Animator animator;
+
+    Vector3 currentWaypoint = Vector3.zero;
+
+    bool moving = false;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //grab the navmesh component
+        navigation = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        
+        //initialize the first waypoint
+        currentWaypoint = PickNextWaypoint();
+
+        moving = true;
+        animator.SetInteger("AnimationID", 1);
+        navigation.SetDestination(currentWaypoint);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        /*
+        //if within .5 of dest then pick a new destination
+        if (navigation.remainingDistance < 2 && moving)
+        { 
+
+            currentWaypoint = PickNextWaypoint();
+            //this is to ensure the next destination is not too close to the current location
+            while(Vector3.Distance(transform.position,currentWaypoint) < 1)
+            {
+                currentWaypoint = PickNextWaypoint();
+            }
+            Debug.LogError("Distance Remaining: " + navigation.remainingDistance.ToString());
+
+            moving = false;
+
+            StartCoroutine(WaitBeforeMoving());
+            
+        }
+        */
+        if (moving)
+        {
+            Debug.LogError("Moving...");
+            navigation.SetDestination(currentWaypoint);
+
+        }
+        
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Waypoint")
+        {
+            moving = false;
+            navigation.isStopped = true;
+            
+            currentWaypoint = PickNextWaypoint();
+            StartCoroutine(WaitBeforeMoving());
+        }
+    }
+
+    private IEnumerator WaitBeforeMoving()
+    {
+        float seconds = Random.Range(minSecondsBetweenMoves, maxSecondsBetweenMoves);
+        Debug.LogError("Waiting... " + seconds.ToString());
+        animator.SetInteger("AnimationID", 0);
+        yield return new WaitForSeconds(seconds);
+
+        moving = true;
+        navigation.isStopped = false;
+        animator.SetInteger("AnimationID", 1);
+    }
+
+
+    private Vector3 PickNextWaypoint()
+    {
+        //when a destination is reached and its time to move again then pick a new random waypoint for destination.
+        int nextWaypoint = Random.Range(0, waypoints.Length);
+
+       // Debug.LogError("Next Waypoint: " + nextWaypoint.ToString());
+
+
+        return waypoints[nextWaypoint].transform.position;
+  
+    }
+}

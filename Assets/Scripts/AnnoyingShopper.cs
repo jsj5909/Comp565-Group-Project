@@ -41,28 +41,10 @@ public class AnnoyingShopper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        //if within .5 of dest then pick a new destination
-        if (navigation.remainingDistance < 2 && moving)
-        { 
-
-            currentWaypoint = PickNextWaypoint();
-            //this is to ensure the next destination is not too close to the current location
-            while(Vector3.Distance(transform.position,currentWaypoint) < 1)
-            {
-                currentWaypoint = PickNextWaypoint();
-            }
-            Debug.LogError("Distance Remaining: " + navigation.remainingDistance.ToString());
-
-            moving = false;
-
-            StartCoroutine(WaitBeforeMoving());
-            
-        }
-        */
+        
         if (moving)
         {
-            Debug.LogError("Moving...");
+            //Debug.LogError("Moving...");
             navigation.SetDestination(currentWaypoint);
 
         }
@@ -84,7 +66,7 @@ public class AnnoyingShopper : MonoBehaviour
     private IEnumerator WaitBeforeMoving()
     {
         float seconds = Random.Range(minSecondsBetweenMoves, maxSecondsBetweenMoves);
-        Debug.LogError("Waiting... " + seconds.ToString());
+        //Debug.LogError("Waiting... " + seconds.ToString());
         animator.SetInteger("AnimationID", 0);
         yield return new WaitForSeconds(seconds);
 

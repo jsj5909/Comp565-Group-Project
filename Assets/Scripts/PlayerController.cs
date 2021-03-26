@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float mouseSensitivity = 1;
     [SerializeField] float moveSpeed = 1;
+
+   
+
+    
 
 
     Camera mainCamera;
@@ -41,6 +46,6 @@ public class PlayerController : MonoBehaviour
         controller.Move(horizontalMove + verticalMove);
     }
 
-
+    
 
 }

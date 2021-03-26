@@ -18,6 +18,8 @@ public class HealthBar : MonoBehaviour
     Image fillImage;
     Image backgroundImage;
 
+    float damageModifier = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +31,14 @@ public class HealthBar : MonoBehaviour
         redHealthy = fillImage.color;  //red by default
         greenSick = backgroundImage.color;  //green by default
 
+        SickShopper.OnEnteringSickCloud += AdjustDamageModifier;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        health.value += healthAdjustment * Time.deltaTime;
+        health.value += healthAdjustment * damageModifier * Time.deltaTime;
 
         if(health.value < Mathf.Epsilon)
         {
@@ -58,5 +62,11 @@ public class HealthBar : MonoBehaviour
 
 
     }
+
+    void AdjustDamageModifier(float value)
+    {
+        damageModifier = value;
+    }
+
 
 }

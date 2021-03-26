@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
 
         mouseLook = new Vector3(Input.GetAxisRaw("Mouse Y") * -1, Input.GetAxisRaw("Mouse X"), 0) * mouseSensitivity;
 
-        //Quaternion look = Quaternion.LookRotation(mouseLook);
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseLook.y, transform.rotation.eulerAngles.z);
 
@@ -41,4 +40,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(horizontalMove + verticalMove);
     }
+
+
+
 }

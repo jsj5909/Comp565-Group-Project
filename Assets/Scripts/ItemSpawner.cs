@@ -8,6 +8,12 @@ public class ItemSpawner : MonoBehaviour
 
     [SerializeField] float spawnDelayTime = 15;
 
+    [Header("Random Settings")]
+    [SerializeField] bool randomSpawnTime = false;
+
+    [SerializeField] float minimumSpawnTime = 10;
+    [SerializeField] float MaximumSpawnTime = 20;
+
     private float respawnTime = 0;
 
     bool respawning = false;
@@ -36,6 +42,11 @@ public class ItemSpawner : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         respawning = true;
+        
+        if(randomSpawnTime)
+        {
+            spawnDelayTime = Random.Range(minimumSpawnTime, MaximumSpawnTime);
+        }
 
         respawnTime = Time.time + spawnDelayTime;
     }

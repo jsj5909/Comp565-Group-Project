@@ -33,6 +33,9 @@ public class HealthBar : MonoBehaviour
 
         SickShopper.OnEnteringSickCloud += AdjustDamageModifier;
 
+
+        FaceMask.FaceMaskPickedUp += AddMask;
+
     }
 
     // Update is called once per frame
@@ -68,5 +71,13 @@ public class HealthBar : MonoBehaviour
         damageModifier = value;
     }
 
+    void AddMask()
+    {
+        fillImage.color = redHealthy;
+
+        backgroundImage.color = greenSick;
+
+        health.value = health.maxValue;
+    }
 
 }

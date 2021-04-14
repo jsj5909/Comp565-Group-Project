@@ -106,18 +106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSecondsBetweenMoves: 3
-  maxSecondsBetweenMoves: 10
-  constantRoute: 0
+  maxSecondsBetweenMoves: 5
+  constantRoute: 1
   waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

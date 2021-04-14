@@ -13,6 +13,8 @@ public class AnnoyingShopper : MonoBehaviour
     [SerializeField] float minSecondsBetweenMoves = 3;
     [SerializeField] float maxSecondsBetweenMoves = 5;
 
+    [SerializeField] bool constantRoute = false;
+
     [SerializeField] GameObject[] waypoints;
 
     NavMeshAgent navigation;
@@ -21,7 +23,11 @@ public class AnnoyingShopper : MonoBehaviour
 
     Vector3 currentWaypoint = Vector3.zero;
 
+    int currentWaypointIndex = 0;
+
     bool moving = false;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +84,8 @@ public class AnnoyingShopper : MonoBehaviour
 
     private Vector3 PickNextWaypoint()
     {
+        
+        
         //when a destination is reached and its time to move again then pick a new random waypoint for destination.
         int nextWaypoint = Random.Range(0, waypoints.Length);
 

@@ -22,6 +22,7 @@ public class ItemSpawner : MonoBehaviour
     void Start()
     {
         Instantiate(item, transform.position, Quaternion.identity);
+
     }
 
     // Update is called once per frame

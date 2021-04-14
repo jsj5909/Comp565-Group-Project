@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float mouseSensitivity = 1;
     [SerializeField] float moveSpeed = 1;
 
-   
 
-    
+
+    float originalSpeed;
 
 
     Camera mainCamera;
@@ -19,14 +19,19 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SlowDown.OnEnteringSlowZone += ModifySpeed;
+        
         controller = GetComponent<CharacterController>();
 
         mainCamera = Camera.main;
+
+        originalSpeed = moveSpeed;
+
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         Vector3 mouseLook;
         Vector3 verticalMove;
         Vector3 horizontalMove;
@@ -47,5 +52,10 @@ public class PlayerController : MonoBehaviour
     }
 
     
+    void ModifySpeed(float modifier)
+    {
+        moveSpeed = originalSpeed * modifier;
+    }
+
 
 }

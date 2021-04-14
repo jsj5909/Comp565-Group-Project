@@ -84,7 +84,15 @@ public class AnnoyingShopper : MonoBehaviour
 
     private Vector3 PickNextWaypoint()
     {
-        
+        if(constantRoute)
+        {
+            currentWaypointIndex++;
+
+            if (currentWaypointIndex >= waypoints.Length)
+                currentWaypointIndex = 0;
+
+            return waypoints[currentWaypointIndex].transform.position;
+        }
         
         //when a destination is reached and its time to move again then pick a new random waypoint for destination.
         int nextWaypoint = Random.Range(0, waypoints.Length);

@@ -1992,18 +1992,6 @@ PrefabInstance:
       value: AnnoyingShopper
       objectReference: {fileID: 0}
     - target: {fileID: 946683931243641749, guid: 2e6c3ef034e037b4aa0582cff9e79368, type: 3}
-      propertyPath: constantRoute
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 946683931243641749, guid: 2e6c3ef034e037b4aa0582cff9e79368, type: 3}
-      propertyPath: waypoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 946683931243641749, guid: 2e6c3ef034e037b4aa0582cff9e79368, type: 3}
-      propertyPath: maxSecondsBetweenMoves
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 946683931243641749, guid: 2e6c3ef034e037b4aa0582cff9e79368, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 2126539940}
@@ -2029,7 +2017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 946683931243641750, guid: 2e6c3ef034e037b4aa0582cff9e79368, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 946683931243641750, guid: 2e6c3ef034e037b4aa0582cff9e79368, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5662,6 +5650,7 @@ GameObject:
   - component: {fileID: 466039096}
   - component: {fileID: 466039098}
   - component: {fileID: 466039097}
+  - component: {fileID: 466039099}
   m_Layer: 5
   m_Name: Tutorial Panel
   m_TagString: Untagged
@@ -5730,6 +5719,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466039095}
   m_CullTransparentMesh: 0
+--- !u!114 &466039099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466039095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcc58c6736d1144fa3bac18d119e546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialsOn: 0
 --- !u!1001 &470842355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16597,7 +16599,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1363818068}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 466039099}
+        m_TargetAssemblyTypeName: Tutorials, Assembly-CSharp
+        m_MethodName: OKPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1363818068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17016,7 +17030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8ee666ab8b009de4ca94a9d05ae32a72, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17422,7 +17436,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Try to avoid the  annoying shopper.  She will get in your way and even
-    slow you down if you enter her sphere of influence.
+    slow you down if you get too close.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

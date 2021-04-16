@@ -47,7 +47,7 @@ public class TitleScreen : MonoBehaviour
         if(fading)
         {
             alpha = Mathf.Lerp(alpha, 1, Time.deltaTime);
-
+           
             fade.color = new Color(0, 0, 0, alpha);
 
             if (alpha > 0.99f)

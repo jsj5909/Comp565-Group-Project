@@ -1999,7 +1999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 946683931243641749, guid: 2e6c3ef034e037b4aa0582cff9e79368, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 946683931243641749, guid: 2e6c3ef034e037b4aa0582cff9e79368, type: 3}
       propertyPath: waypoints.Array.size
@@ -3234,14 +3234,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0.21960784}
+  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8ee666ab8b009de4ca94a9d05ae32a72, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9720,7 +9720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9757,12 +9757,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549e83e18756cb049a6fb4c65bfcc9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toiletPaper: {fileID: 0}
-  water: {fileID: 0}
-  PaperTowel: {fileID: 0}
-  food: {fileID: 0}
-  plates: {fileID: 0}
-  neededItems: 000000000100000003000000
+  uiImages:
+  - {fileID: 298335310}
+  - {fileID: 1274665854}
+  - {fileID: 390548768}
+  - {fileID: 1595795336}
+  - {fileID: 1313841213}
+  neededItems:
+  - {fileID: 11400000, guid: 796717b2a24a5174cb1b02b0b19f5979, type: 2}
+  - {fileID: 11400000, guid: 68633807e33d44b46b1ce58aac29f7ae, type: 2}
+  - {fileID: 11400000, guid: 9e14575adca669545bd213e7b30c9078, type: 2}
+  - {fileID: 11400000, guid: 4e7407b2ed56d2348a4c1d3dbf494f78, type: 2}
 --- !u!4 &793007510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}

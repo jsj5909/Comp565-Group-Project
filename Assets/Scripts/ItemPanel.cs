@@ -8,20 +8,20 @@ enum ItemType { ToiletPaper, Water, PaperTowel, Food, Plates }
 
 public class ItemPanel : MonoBehaviour
 {
-    [SerializeField] Image toiletPaper;
-    [SerializeField] Image water;
-    [SerializeField] Image PaperTowel;
-    [SerializeField] Image food;
-    [SerializeField] Image plates;
+    [SerializeField] Image[] uiImages;
 
-    [SerializeField] ItemType[] neededItems;
-    List<ItemType> playerItems;
+    [SerializeField] ItemData[] neededItems;
+   
+    List<string> playerItems;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerItems = new List<string>();
        
+        InitializeUI();
 
+        Item.ItemPickedUp += UpdateUI;
 
     }
 
@@ -38,6 +38,26 @@ public class ItemPanel : MonoBehaviour
 
     void InitializeUI()
     {
+        for(int i = 0; i < neededItems.Length; i++)
+        {
+            uiImages[i].sprite = neededItems[i].GetImage();
+            uiImages[i].color = new Color(1, 1, 1, 1);
+        }
+    }
 
+    void UpdateUI(int cost, string name)
+    {
+        for(int i=0; i < neededItems.Length;i++)
+        {
+            if(neededItems[i].GetName() == name)
+            {
+                uiImages[i].color = new Color(1, 1, 1, 0);
+                if (!playerItems.Contains(name))
+                {
+                    playerItems.Add(name);
+                }
+                break;
+            }
+        }
     }
 }

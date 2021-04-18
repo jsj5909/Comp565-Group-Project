@@ -77,5 +77,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
-    - _Silhouette: {r: 0.24850795, g: 0.086240634, b: 0.9622642, a: 0.50980395}
+    - _Silhouette: {r: 0.24850795, g: 0.086240634, b: 0.9622642, a: 0.6313726}
   m_BuildTextureStacks: []

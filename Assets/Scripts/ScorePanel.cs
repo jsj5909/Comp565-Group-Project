@@ -14,6 +14,8 @@ public class ScorePanel : MonoBehaviour
     void Start()
     {
         Item.ItemPickedUp += UpdateMoney;
+
+        moneyText.text = "Cash: " + money.ToString();
     }
 
     // Update is called once per frame

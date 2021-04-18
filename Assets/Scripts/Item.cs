@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
             {
                 ItemPickedUp(data.GetCost(),data.GetName());
             }
-
+           
             Destroy(gameObject);
 
         }

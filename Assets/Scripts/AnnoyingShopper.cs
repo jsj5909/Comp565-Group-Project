@@ -59,6 +59,8 @@ public class AnnoyingShopper : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        
+        
         if(other.gameObject.tag == "Waypoint")
         {
             moving = false;
@@ -90,6 +92,9 @@ public class AnnoyingShopper : MonoBehaviour
 
             if (currentWaypointIndex >= waypoints.Length)
                 currentWaypointIndex = 0;
+
+            //Debug.Log("currentWaypoint:  " + waypoints[currentWaypointIndex].gameObject.name.ToString());
+            Debug.Log("currentWaypoint:  " + currentWaypointIndex.ToString());
 
             return waypoints[currentWaypointIndex].transform.position;
         }

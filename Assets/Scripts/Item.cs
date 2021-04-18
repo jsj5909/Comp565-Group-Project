@@ -5,9 +5,11 @@ using System;
 
 public class Item : MonoBehaviour
 {
-     [SerializeField] protected int cost = 5;
+    // [SerializeField] protected int cost = 5;
 
-    [SerializeField] protected string itemName = string.Empty;
+   // [SerializeField] protected string itemName = string.Empty;
+
+    [SerializeField] ItemData data;
 
     public static Action<int, string> ItemPickedUp;
     
@@ -27,7 +29,7 @@ public class Item : MonoBehaviour
         {
             if (ItemPickedUp != null)
             {
-                ItemPickedUp(cost,itemName);
+                ItemPickedUp(data.GetCost(),data.GetName());
             }
 
             Destroy(gameObject);
@@ -35,6 +37,6 @@ public class Item : MonoBehaviour
         }
     }
 
-
+   
 
 }

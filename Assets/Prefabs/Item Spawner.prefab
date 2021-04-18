@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7888a41ee1b762b4e8e72f88eda2326b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 3963738558620755924, guid: 6395fe4c2dfca3c4a92265ec571ee719, type: 3}
+  item: {fileID: 2091957442948220994, guid: dcbe90c80b72a684da8d95c62766e92c, type: 3}
   spawnDelayTime: 5
   randomSpawnTime: 1
-  minimumSpawnTime: 7
-  MaximumSpawnTime: 15
+  minimumSpawnTime: 5
+  MaximumSpawnTime: 7
 --- !u!65 &1095532625375686232
 BoxCollider:
   m_ObjectHideFlags: 0

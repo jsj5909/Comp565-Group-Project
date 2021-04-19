@@ -21,7 +21,7 @@ public class Fade : MonoBehaviour
         Tutorials.OkayPressed += StartFade;
 
         alpha = fade.color.a;
-        Debug.LogError("Start Alpha: " + alpha.ToString());
+       // Debug.LogError("Start Alpha: " + alpha.ToString());
     }
 
     // Update is called once per frame
@@ -29,8 +29,8 @@ public class Fade : MonoBehaviour
     {
         float alphaChange = 0;
 
-        Debug.Log("DeltaTime: " + Time.deltaTime.ToString());
-        Debug.Log("Timescale: " + Time.timeScale.ToString());
+        //Debug.Log("DeltaTime: " + Time.deltaTime.ToString());
+      //  Debug.Log("Timescale: " + Time.timeScale.ToString());
         if (fading)
         {
              alpha = Mathf.Lerp(alpha,0, fadeSpeed * Time.deltaTime);
@@ -44,8 +44,8 @@ public class Fade : MonoBehaviour
             fade.color = new Color(0, 0, 0, alpha);
 
             
-            Debug.Log("fade * time == " + (fadeSpeed * Time.deltaTime).ToString());
-            Debug.LogError("Alpha: " + alpha.ToString());
+          //  Debug.Log("fade * time == " + (fadeSpeed * Time.deltaTime).ToString());
+         //   Debug.LogError("Alpha: " + alpha.ToString());
 
             if (alpha < 0.01f)
             { 

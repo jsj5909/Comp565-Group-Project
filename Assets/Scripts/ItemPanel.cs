@@ -60,4 +60,9 @@ public class ItemPanel : MonoBehaviour
             }
         }
     }
+
+    public ItemData[] GetNeededItems()
+    {
+        return neededItems;
+    }
 }

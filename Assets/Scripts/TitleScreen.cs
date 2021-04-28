@@ -91,8 +91,10 @@ public class TitleScreen : MonoBehaviour
 
     public void SettingsPressed()
     {
-        settingsPanel.SetActive(true);
-        buttonPanel.SetActive(false);
+        // settingsPanel.SetActive(true);
+        //buttonPanel.SetActive(false);
+
+        Application.Quit();
     }
 
     public void SettingsOkayPressed()

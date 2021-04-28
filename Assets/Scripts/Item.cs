@@ -5,13 +5,12 @@ using System;
 
 public class Item : MonoBehaviour
 {
-    // [SerializeField] protected int cost = 5;
-
-   // [SerializeField] protected string itemName = string.Empty;
+    [SerializeField] float rotateSpeed;
 
     [SerializeField] ItemData data;
 
     public static Action<int, string> ItemPickedUp;
+
     
     void Start()
     {
@@ -22,6 +21,8 @@ public class Item : MonoBehaviour
     void Update()
     {
         
+
+       
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -58,7 +58,7 @@ Shader "Custom/ZTest Silhouette" {
 
 		struct Input {
 			float2 uv_MainTex;
-		};
+		};  
 
 		fixed4 _Silhouette;
 

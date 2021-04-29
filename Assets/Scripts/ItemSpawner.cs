@@ -42,13 +42,16 @@ public class ItemSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        respawning = true;
-        
-        if(randomSpawnTime)
+        if (other.transform.tag.Equals("Player"))
         {
-            spawnDelayTime = Random.Range(minimumSpawnTime, MaximumSpawnTime);
-        }
+            respawning = true;
 
-        respawnTime = Time.time + spawnDelayTime;
+            if (randomSpawnTime)
+            {
+                spawnDelayTime = Random.Range(minimumSpawnTime, MaximumSpawnTime);
+            }
+
+            respawnTime = Time.time + spawnDelayTime;
+        }
     }
 }

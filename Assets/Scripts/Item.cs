@@ -11,6 +11,7 @@ public class Item : MonoBehaviour
 
     public static Action<int, string> ItemPickedUp;
 
+
     
     void Start()
     {

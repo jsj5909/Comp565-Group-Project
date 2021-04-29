@@ -26,10 +26,11 @@ public class Item : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Equals("Player"))
+        if (other.transform.tag.Equals("Player"))
         {
             if (ItemPickedUp != null)
             {
+                Debug.LogError("ITEM PICKED UP");
                 ItemPickedUp(data.GetCost(),data.GetName());
             }
            

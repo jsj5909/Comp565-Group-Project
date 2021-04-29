@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class HealthBar : MonoBehaviour
 
     [SerializeField] GameObject fill;
     [SerializeField] GameObject background;
+
+    [SerializeField] GameObject deathPanel;
+    [SerializeField] TextMeshProUGUI deathTypeText;
+    [SerializeField] TextMeshProUGUI deathDescriptionText;
 
     Slider health;
 
@@ -19,6 +24,8 @@ public class HealthBar : MonoBehaviour
     Image backgroundImage;
 
     float damageModifier = 1;
+
+    bool sickMode = false;
 
     // Start is called before the first frame update
     void Start()
@@ -45,14 +52,28 @@ public class HealthBar : MonoBehaviour
 
         if(health.value < Mathf.Epsilon)
         {
-            //Debug.Log("Sick");
-            StartSickMode();
+            if (sickMode)
+            {
+                if(health.value == 0)
+                {
+                  //  Time.timeScale = 0;
+                    deathTypeText.text = "The pandemic killed you!";
+                    deathDescriptionText.text = "Your mask wore out and you were overcome with illness.  Better Luck next time...";
+                    deathPanel.SetActive(true);
+
+                }
+            }
+            else
+            {
+                //Debug.Log("Sick");
+                StartSickMode();
+            }
         }
     }
 
     void StartSickMode()
     {
-
+        sickMode = true;
         
         fillImage.color = greenSick;
 
@@ -66,6 +87,7 @@ public class HealthBar : MonoBehaviour
 
     }
 
+
     void AdjustDamageModifier(float value)
     {
         damageModifier = value;
@@ -78,6 +100,15 @@ public class HealthBar : MonoBehaviour
         backgroundImage.color = greenSick;
 
         health.value = health.maxValue;
+
+        sickMode = false;
     }
 
+    private void OnDestroy()
+    {
+        SickShopper.OnEnteringSickCloud -= AdjustDamageModifier;
+
+
+        FaceMask.FaceMaskPickedUp -= AddMask;
+    }
 }

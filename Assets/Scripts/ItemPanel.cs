@@ -65,4 +65,9 @@ public class ItemPanel : MonoBehaviour
     {
         return neededItems;
     }
+
+    private void OnDestroy()
+    {
+        Item.ItemPickedUp -= UpdateUI;
+    }
 }

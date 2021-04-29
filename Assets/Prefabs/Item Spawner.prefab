@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7888a41ee1b762b4e8e72f88eda2326b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 2091957442948220994, guid: dcbe90c80b72a684da8d95c62766e92c, type: 3}
+  item: {fileID: 0}
   spawnDelayTime: 5
   randomSpawnTime: 1
   minimumSpawnTime: 5

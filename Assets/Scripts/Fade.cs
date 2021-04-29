@@ -35,7 +35,7 @@ public class Fade : MonoBehaviour
         {
              alpha = Mathf.Lerp(alpha,0, fadeSpeed * Time.deltaTime);
 
-             Debug.Log("AlphaChange: " + alphaChange.ToString());
+           //  Debug.Log("AlphaChange: " + alphaChange.ToString());
 
             // alpha -= alphaChange;
 
@@ -47,11 +47,18 @@ public class Fade : MonoBehaviour
           //  Debug.Log("fade * time == " + (fadeSpeed * Time.deltaTime).ToString());
          //   Debug.LogError("Alpha: " + alpha.ToString());
 
+            if(alpha < 0.5)
+            {
+                GameObject.Find("Player").GetComponent<PlayerController>().SetCanMove(true);
+            }
+
             if (alpha < 0.01f)
             { 
                 
                 fading = false;
+
                 
+
                 //Time.timeScale = 1;
             }
         }

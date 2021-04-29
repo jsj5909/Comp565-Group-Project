@@ -30,7 +30,7 @@ public class ScorePanel : MonoBehaviour
 
     void UpdateMoney(int cost, string itemName)
     {
-        Debug.Log("Money: " + money.ToString() + " Cost: " + cost.ToString());
+       // Debug.Log("Money: " + money.ToString() + " Cost: " + cost.ToString());
         money -= cost;
 
         moneyText.text = "Cash: "  + money.ToString();

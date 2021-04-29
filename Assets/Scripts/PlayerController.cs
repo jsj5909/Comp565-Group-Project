@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float mouseSensitivity = 1;
     [SerializeField] float moveSpeed = 1;
 
-
+    private bool canMove = false;
 
     float originalSpeed;
 
@@ -31,24 +31,28 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        Vector3 mouseLook;
-        Vector3 verticalMove;
-        Vector3 horizontalMove;
+    {
+        if (canMove)
+        {
 
-        horizontalMove = transform.right * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        verticalMove = transform.forward * Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+            Vector3 mouseLook;
+            Vector3 verticalMove;
+            Vector3 horizontalMove;
 
-
-        mouseLook = new Vector3(Input.GetAxisRaw("Mouse Y") * -1, Input.GetAxisRaw("Mouse X"), 0) * mouseSensitivity;
-
-
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseLook.y, transform.rotation.eulerAngles.z);
+            horizontalMove = transform.right * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+            verticalMove = transform.forward * Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
 
-        mainCamera.transform.rotation = Quaternion.Euler(mainCamera.transform.rotation.eulerAngles.x + mouseLook.x, mainCamera.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            mouseLook = new Vector3(Input.GetAxisRaw("Mouse Y") * -1, Input.GetAxisRaw("Mouse X"), 0) * mouseSensitivity;
 
-        controller.Move(horizontalMove + verticalMove);
+
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseLook.y, transform.rotation.eulerAngles.z);
+
+
+            mainCamera.transform.rotation = Quaternion.Euler(mainCamera.transform.rotation.eulerAngles.x + mouseLook.x, mainCamera.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+
+            controller.Move(horizontalMove + verticalMove);
+        }
     }
 
     
@@ -57,5 +61,14 @@ public class PlayerController : MonoBehaviour
         moveSpeed = originalSpeed * modifier;
     }
 
+    public void SetCanMove(bool move)
+    {
+        canMove = move;
+    }
+
+    public bool GetCanMove()
+    {
+        return canMove;
+    }
 
 }

@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
         {
             if (ItemPickedUp != null)
             {
-                Debug.LogError("ITEM PICKED UP");
+               // Debug.LogError("ITEM PICKED UP");
                 ItemPickedUp(data.GetCost(),data.GetName());
             }
            

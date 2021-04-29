@@ -27,6 +27,8 @@ public class HealthBar : MonoBehaviour
 
     bool sickMode = false;
 
+    PlayerController player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,30 +45,38 @@ public class HealthBar : MonoBehaviour
 
         FaceMask.FaceMaskPickedUp += AddMask;
 
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        health.value += healthAdjustment * damageModifier * Time.deltaTime;
-
-        if(health.value < Mathf.Epsilon)
+        if (player.GetCanMove())
         {
-            if (sickMode)
-            {
-                if(health.value == 0)
-                {
-                  //  Time.timeScale = 0;
-                    deathTypeText.text = "The pandemic killed you!";
-                    deathDescriptionText.text = "Your mask wore out and you were overcome with illness.  Better Luck next time...";
-                    deathPanel.SetActive(true);
 
-                }
-            }
-            else
+            health.value += healthAdjustment * damageModifier * Time.deltaTime;
+
+            if (health.value < Mathf.Epsilon)
             {
-                //Debug.Log("Sick");
-                StartSickMode();
+                if (sickMode)
+                {
+                    if (health.value == 0)
+                    {
+                        player.SetCanMove(false);
+                        //  Time.timeScale = 0;
+                        deathTypeText.text = "The pandemic killed you!";
+                        deathDescriptionText.text = "Your mask wore out and you were overcome with illness.  Better Luck next time...";
+                        deathPanel.SetActive(true);
+
+                    }
+                }
+                else
+                {
+                    //Debug.Log("Sick");
+                    StartSickMode();
+                }
             }
         }
     }

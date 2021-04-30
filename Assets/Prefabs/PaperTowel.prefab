@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6419015592510485966}
   - component: {fileID: 5661613972969350656}
   - component: {fileID: 915943109368965306}
+  - component: {fileID: -9014227851653714937}
   m_Layer: 0
   m_Name: PaperTowel
   m_TagString: Untagged
@@ -111,3 +112,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 0
   data: {fileID: 11400000, guid: 68633807e33d44b46b1ce58aac29f7ae, type: 2}
+--- !u!114 &-9014227851653714937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835038216373723529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ed8bd5252ee184bb0328a4ac0d708a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 75

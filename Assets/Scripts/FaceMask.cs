@@ -8,9 +8,9 @@ public class FaceMask : MonoBehaviour
 
     [SerializeField] float rotateSpeed = 1;
 
-    
+    [SerializeField] int cost = 20;
 
-    public static Action FaceMaskPickedUp;
+    public static Action<int> FaceMaskPickedUp;
     
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class FaceMask : MonoBehaviour
         {
             if(FaceMaskPickedUp != null)
             {
-                FaceMaskPickedUp();
+                FaceMaskPickedUp(cost);
             }
 
             Destroy(gameObject);

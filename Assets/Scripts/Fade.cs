@@ -50,14 +50,13 @@ public class Fade : MonoBehaviour
             if(alpha < 0.5)
             {
                 GameObject.Find("Player").GetComponent<PlayerController>().SetCanMove(true);
+                //fading = false;
             }
 
-            if (alpha < 0.01f)
+            if (alpha < 0.05f)
             { 
                 
                 fading = false;
-
-                
 
                 //Time.timeScale = 1;
             }

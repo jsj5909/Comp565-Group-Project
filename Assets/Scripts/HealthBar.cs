@@ -103,7 +103,7 @@ public class HealthBar : MonoBehaviour
         damageModifier = value;
     }
 
-    void AddMask()
+    void AddMask(int cost)
     {
         fillImage.color = redHealthy;
 

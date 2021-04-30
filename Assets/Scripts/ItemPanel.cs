@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum ItemType { ToiletPaper, Water, PaperTowel, Food, Plates }
+
 
 
 public class ItemPanel : MonoBehaviour
@@ -22,6 +22,8 @@ public class ItemPanel : MonoBehaviour
         InitializeUI();
 
         Item.ItemPickedUp += UpdateUI;
+
+        Shoplifter.OnStealing += StealItem;
 
     }
 
@@ -66,8 +68,34 @@ public class ItemPanel : MonoBehaviour
         return neededItems;
     }
 
+    private void StealItem()
+    {
+        if (playerItems.Count < 1)
+            return;
+        
+        int randomItem = Random.Range(0, playerItems.Count);
+
+        string itemName = playerItems[randomItem];
+        //Debug.LogError("Stolen: " + itemName);
+
+        playerItems.RemoveAt(randomItem);
+
+        for (int i = 0; i < neededItems.Length; i++)
+        {
+            if (neededItems[i].GetName() == itemName)
+            {
+                uiImages[i].color = new Color(1, 1, 1, 1);
+                
+                break;
+            }
+        }
+       
+
+    }
+
     private void OnDestroy()
     {
         Item.ItemPickedUp -= UpdateUI;
+        Shoplifter.OnStealing -= StealItem;
     }
 }

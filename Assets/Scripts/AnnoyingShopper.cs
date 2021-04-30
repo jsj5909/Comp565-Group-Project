@@ -94,7 +94,7 @@ public class AnnoyingShopper : MonoBehaviour
                 currentWaypointIndex = 0;
 
             //Debug.Log("currentWaypoint:  " + waypoints[currentWaypointIndex].gameObject.name.ToString());
-            Debug.Log("currentWaypoint:  " + currentWaypointIndex.ToString());
+          //  Debug.Log("currentWaypoint:  " + currentWaypointIndex.ToString());
 
             return waypoints[currentWaypointIndex].transform.position;
         }

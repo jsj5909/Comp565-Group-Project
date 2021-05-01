@@ -6983,6 +6983,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 448232, guid: 528f208a36b2597419fce71d98b761a5, type: 3}
   m_PrefabInstance: {fileID: 359282556}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &360090079
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904520, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167718575818904527, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+      propertyPath: m_Name
+      value: Level Checkout
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
 --- !u!1001 &360259265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14006,6 +14063,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
   m_PrefabInstance: {fileID: 1904734179}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &679263553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3167718575818904527, guid: 8a53545710e2e6f44b4996fe8da5f334, type: 3}
+  m_PrefabInstance: {fileID: 360090079}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &680021755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14905,6 +14967,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 1840225149031138203, guid: 918a856540527ed4fb34858965a3a744, type: 3}
+      propertyPath: levelCheckoutObject
+      value: 
+      objectReference: {fileID: 679263553}
     - target: {fileID: 1840225149059993273, guid: 918a856540527ed4fb34858965a3a744, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -14921,6 +14987,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1840225149256143681, guid: 918a856540527ed4fb34858965a3a744, type: 3}
+      propertyPath: levelCheckoutObject
+      value: 
+      objectReference: {fileID: 679263553}
     - target: {fileID: 1840225149256143681, guid: 918a856540527ed4fb34858965a3a744, type: 3}
       propertyPath: neededItems.Array.size
       value: 4

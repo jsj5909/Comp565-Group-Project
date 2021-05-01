@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 946683931243641750}
   - component: {fileID: 946683931243641751}
-  - component: {fileID: 946683931243641745}
   - component: {fileID: 946683931243641746}
   - component: {fileID: 946683931243641749}
   - component: {fileID: 5164025029377911145}
@@ -61,19 +60,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &946683931243641745
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 946683931243641747}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.57, y: 2.17, z: 0.41}
-  m_Center: {x: 0, y: 1.34, z: 0}
 --- !u!95 &946683931243641746
 Animator:
   serializedVersion: 3
@@ -108,6 +94,7 @@ MonoBehaviour:
   minSecondsBetweenMoves: 3
   maxSecondsBetweenMoves: 5
   constantRoute: 1
+  maxTimeToWaypoint: 7
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -140,7 +127,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!65 &946683932809505170
 BoxCollider:
@@ -183,7 +170,7 @@ Transform:
   m_GameObject: {fileID: 9177493185175732793}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.12, y: 0.001, z: 0}
-  m_LocalScale: {x: 8, y: 0.01, z: 8}
+  m_LocalScale: {x: 7, y: 0.01, z: 7}
   m_Children: []
   m_Father: {fileID: 946683931243641750}
   m_RootOrder: 2
@@ -248,7 +235,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.49
+  m_Radius: 0.45
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &946683932721453838
 PrefabInstance:

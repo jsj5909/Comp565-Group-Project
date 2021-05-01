@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3783754352465153702}
   - component: {fileID: 3783754352465153703}
-  - component: {fileID: 3783754352465153697}
   - component: {fileID: 3783754352465153698}
   - component: {fileID: 3783754352465153701}
   - component: {fileID: 3783754352465153696}
@@ -59,19 +58,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &3783754352465153697
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3783754352465153699}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.57, y: 2.17, z: 0.41}
-  m_Center: {x: 0, y: 1.34, z: 0}
 --- !u!95 &3783754352465153698
 Animator:
   serializedVersion: 3
@@ -106,6 +92,7 @@ MonoBehaviour:
   minSecondsBetweenMoves: 3
   maxSecondsBetweenMoves: 5
   constantRoute: 1
+  maxTimeToWaypoint: 7
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -308,7 +295,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9500000, guid: 214bcce7f27c132428a1a8aba0ea371a, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 214bcce7f27c132428a1a8aba0ea371a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 214bcce7f27c132428a1a8aba0ea371a, type: 3}
 --- !u!4 &4335704927134511753 stripped
 Transform:

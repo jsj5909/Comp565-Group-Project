@@ -29,6 +29,9 @@ public class Shoplifter : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        if (other.gameObject.tag.Equals("Waypoint"))
+            return;
+        
         if (Time.time > nextTheftTime)
         {
 

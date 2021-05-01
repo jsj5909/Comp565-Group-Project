@@ -14,6 +14,7 @@ public class AnnoyingShopper : MonoBehaviour
     [SerializeField] float maxSecondsBetweenMoves = 5;
 
     [SerializeField] bool constantRoute = false;
+    [SerializeField] float maxTimeToWaypoint = 7;
 
     [SerializeField] GameObject[] waypoints;
 
@@ -23,9 +24,11 @@ public class AnnoyingShopper : MonoBehaviour
 
     Vector3 currentWaypoint = Vector3.zero;
 
-    int currentWaypointIndex = 0;
+    int currentWaypointIndex = -1;
+    int previousWaypointIndex = -1;
 
     bool moving = false;
+    float timeToReachWaypoint = -1;
 
 
 
@@ -42,6 +45,8 @@ public class AnnoyingShopper : MonoBehaviour
         moving = true;
         animator.SetInteger("AnimationID", 1);
         navigation.SetDestination(currentWaypoint);
+
+        timeToReachWaypoint += Time.time + maxTimeToWaypoint;
     }
 
     // Update is called once per frame
@@ -50,8 +55,21 @@ public class AnnoyingShopper : MonoBehaviour
         
         if (moving)
         {
+          /*  if(Time.time > timeToReachWaypoint)
+            {
+                PickNextWaypoint();
+                timeToReachWaypoint += Time.time + maxTimeToWaypoint;
+            }
+          */ 
+            
             //Debug.LogError("Moving...");
-            navigation.SetDestination(currentWaypoint);
+          //  if(navigation.isPathStale)
+          //  {
+          //      PickNextWaypoint();
+          //  }
+
+            // navigation.SetDestination(currentWaypoint);
+            navigation.destination = currentWaypoint;
 
         }
         
@@ -63,9 +81,18 @@ public class AnnoyingShopper : MonoBehaviour
         
         if(other.gameObject.tag == "Waypoint")
         {
+            if ((currentWaypoint - other.transform.position).magnitude > 0.1)
+            {
+               // Debug.LogError("distance = " + (currentWaypoint - other.transform.position).magnitude.ToString());
+                
+                return;
+            }
+            
             moving = false;
             navigation.isStopped = true;
-            
+
+           // Debug.LogError("distance = " + (currentWaypoint - other.transform.position).magnitude.ToString());
+
             currentWaypoint = PickNextWaypoint();
             StartCoroutine(WaitBeforeMoving());
         }
@@ -98,14 +125,24 @@ public class AnnoyingShopper : MonoBehaviour
 
             return waypoints[currentWaypointIndex].transform.position;
         }
-        
+
         //when a destination is reached and its time to move again then pick a new random waypoint for destination.
-        int nextWaypoint = Random.Range(0, waypoints.Length);
+        //don't pick the second one twice in a row
 
-       // Debug.LogError("Next Waypoint: " + nextWaypoint.ToString());
+        int nextWaypointIndex = Random.Range(0, waypoints.Length);
+        while (currentWaypointIndex == nextWaypointIndex)
+        {
+            nextWaypointIndex = Random.Range(0, waypoints.Length);
 
+            // Debug.LogError("Next Waypoint: " + nextWaypoint.ToString());
+        }
 
-        return waypoints[nextWaypoint].transform.position;
+        previousWaypointIndex = currentWaypointIndex;
+        currentWaypointIndex = nextWaypointIndex;
+
+       // Debug.LogError("PWP = " + previousWaypointIndex + " CWP = " + currentWaypointIndex);
+
+        return waypoints[nextWaypointIndex].transform.position;
   
     }
 }

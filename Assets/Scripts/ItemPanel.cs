@@ -8,11 +8,15 @@ using UnityEngine.UI;
 
 public class ItemPanel : MonoBehaviour
 {
+    [SerializeField] GameObject levelCheckoutObject;
+    
     [SerializeField] Image[] uiImages;
 
     [SerializeField] ItemData[] neededItems;
    
     List<string> playerItems;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +29,21 @@ public class ItemPanel : MonoBehaviour
 
         Shoplifter.OnStealing += StealItem;
 
+        levelCheckoutObject.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerItems.Count == neededItems.Length)
+        {
+            levelCheckoutObject.SetActive(true);
+        }
+        else
+        {
+            levelCheckoutObject.SetActive(false);
+        }
     }
 
     void ItemPickedUp()

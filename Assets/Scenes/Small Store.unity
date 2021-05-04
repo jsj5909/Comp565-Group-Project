@@ -12422,13 +12422,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 921162032849434197, guid: 918a856540527ed4fb34858965a3a744, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e7c62fb53c6368f40ba7f935cd9d8336, type: 3}
+    - target: {fileID: 921162032883093207, guid: 918a856540527ed4fb34858965a3a744, type: 3}
+      propertyPath: m_text
+      value: If you get too close the shoplifter will steal your items and you will
+        have to go back and get them again.
+      objectReference: {fileID: 0}
     - target: {fileID: 921162034022404384, guid: 918a856540527ed4fb34858965a3a744, type: 3}
       propertyPath: tutorialsOn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 921162034022404396, guid: 918a856540527ed4fb34858965a3a744, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 921162034420957257, guid: 918a856540527ed4fb34858965a3a744, type: 3}
+      propertyPath: m_text
+      value: The Shoplifter
       objectReference: {fileID: 0}
     - target: {fileID: 1840225147257282276, guid: 918a856540527ed4fb34858965a3a744, type: 3}
       propertyPath: m_IsActive
@@ -12505,6 +12518,10 @@ PrefabInstance:
     - target: {fileID: 1840225147644336045, guid: 918a856540527ed4fb34858965a3a744, type: 3}
       propertyPath: healthAdjustment
       value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840225147682881737, guid: 918a856540527ed4fb34858965a3a744, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1840225147723845795, guid: 918a856540527ed4fb34858965a3a744, type: 3}
       propertyPath: m_Sprite
@@ -12739,6 +12756,10 @@ PrefabInstance:
       value: 'Entering Rey''s Mini Mart
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840225149031138203, guid: 918a856540527ed4fb34858965a3a744, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1840225149031138203, guid: 918a856540527ed4fb34858965a3a744, type: 3}
       propertyPath: levelCheckoutObject

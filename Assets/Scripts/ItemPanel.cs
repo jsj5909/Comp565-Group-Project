@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 
@@ -13,6 +14,8 @@ public class ItemPanel : MonoBehaviour
     [SerializeField] Image[] uiImages;
 
     [SerializeField] ItemData[] neededItems;
+
+    [SerializeField] TextMeshProUGUI proceedToCheckout;
    
     List<string> playerItems;
 
@@ -31,6 +34,8 @@ public class ItemPanel : MonoBehaviour
 
         levelCheckoutObject.SetActive(false);
 
+        proceedToCheckout.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -38,11 +43,13 @@ public class ItemPanel : MonoBehaviour
     {
         if(playerItems.Count == neededItems.Length)
         {
+            proceedToCheckout.gameObject.SetActive(true);
             levelCheckoutObject.SetActive(true);
         }
         else
         {
-            levelCheckoutObject.SetActive(false);
+            proceedToCheckout.gameObject.SetActive(false); 
+           levelCheckoutObject.SetActive(false);
         }
     }
 

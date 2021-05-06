@@ -19,7 +19,11 @@ public class ItemPanel : MonoBehaviour
    
     List<string> playerItems;
 
+    AudioSource audio;
 
+    [SerializeField] AudioClip correctItem;
+    [SerializeField] AudioClip wrongItem;
+    [SerializeField] AudioClip proceedToCheckoutSound;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +40,8 @@ public class ItemPanel : MonoBehaviour
 
         proceedToCheckout.gameObject.SetActive(false);
 
+        audio = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -45,6 +51,8 @@ public class ItemPanel : MonoBehaviour
         {
             proceedToCheckout.gameObject.SetActive(true);
             levelCheckoutObject.SetActive(true);
+            
+          
         }
         else
         {
@@ -53,10 +61,7 @@ public class ItemPanel : MonoBehaviour
         }
     }
 
-    void ItemPickedUp()
-    {
-
-    }
+    
 
     void InitializeUI()
     {
@@ -81,6 +86,23 @@ public class ItemPanel : MonoBehaviour
                 break;
             }
         }
+
+        if (playerItems.Count < neededItems.Length)
+        {
+            if (playerItems.Contains(name))
+            {
+                audio.PlayOneShot(correctItem);
+            }
+            else
+            {
+                audio.PlayOneShot(wrongItem);
+            }
+        }
+        else
+        {
+            audio.PlayOneShot(proceedToCheckoutSound);
+        }
+        
     }
 
     public ItemData[] GetNeededItems()
@@ -109,8 +131,8 @@ public class ItemPanel : MonoBehaviour
                 break;
             }
         }
-       
 
+        audio.PlayOneShot(wrongItem);
     }
 
     private void OnDestroy()

@@ -32,7 +32,7 @@ public class ItemSpawner : MonoBehaviour
         {
             if (Time.time > respawnTime)
             {
-                Instantiate(item, transform.position, Quaternion.identity);
+                Instantiate(item, transform.position,Quaternion.identity);
                 respawning = false;
             }
         }

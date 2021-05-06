@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class DeathPanel : MonoBehaviour
@@ -11,6 +12,9 @@ public class DeathPanel : MonoBehaviour
 
     [SerializeField]
     Button mainMenu;
+
+    [SerializeField]
+    TextMeshProUGUI proceedToCheckout;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +24,9 @@ public class DeathPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (proceedToCheckout.gameObject.activeInHierarchy)
+            proceedToCheckout.gameObject.SetActive(false);
+
     }
 
     public void ReloadButtonPressed()

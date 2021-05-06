@@ -27,6 +27,8 @@ public class HealthBar : MonoBehaviour
 
     bool sickMode = false;
 
+    bool debugMode = false;
+
     PlayerController player;
 
     // Start is called before the first frame update
@@ -53,7 +55,13 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetCanMove())
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            debugMode = !debugMode;
+        }
+        
+        
+        if (player.GetCanMove() && !debugMode)
         {
 
             health.value += healthAdjustment * damageModifier * Time.deltaTime;

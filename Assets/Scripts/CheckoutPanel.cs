@@ -33,8 +33,14 @@ public class CheckoutPanel : MonoBehaviour
     {
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
 
-       
-        SceneManager.LoadScene(nextScene);
+        if (nextScene > SceneManager.sceneCountInBuildSettings-1)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(nextScene);
+        }
     }
 
 }

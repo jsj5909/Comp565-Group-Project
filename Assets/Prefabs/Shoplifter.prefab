@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSecondsBetweenMoves: 3
   maxSecondsBetweenMoves: 5
-  constantRoute: 1
+  constantRoute: 0
   maxTimeToWaypoint: 7
   waypoints:
   - {fileID: 0}
@@ -112,7 +112,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!1 &5115198439980349193
 GameObject:
@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 8138137673953557949}
   - component: {fileID: 4601781495280123339}
   - component: {fileID: 2388376071022712416}
-  - component: {fileID: 5115198439980349195}
   - component: {fileID: 5115198439980349192}
   m_Layer: 0
   m_Name: FloorSphere
@@ -211,22 +210,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.49
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5115198439980349195
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5115198439980349193}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &5115198439980349192
 MonoBehaviour:
   m_ObjectHideFlags: 0
